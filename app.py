@@ -1,8 +1,3 @@
-"""
-AeroLogix AI — Production-style Streamlit dashboard
-Converted from the uploaded HTML concept into a working Streamlit app.
-"""
-
 from __future__ import annotations
 
 import io
@@ -32,9 +27,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# -----------------------------------------------------------------------------
-# Imports from existing project modules
-# -----------------------------------------------------------------------------
 from modules.data_loader import load_file, load_sample_data
 from modules.data_cleaner import clean_data
 from modules.eda import build_full_eda
@@ -72,10 +64,6 @@ except Exception:
 
 init_db()
 
-# -----------------------------------------------------------------------------
-# -----------------------------------------------------------------------------
-# Premium UI CSS — aerospace glassmorphism dashboard
-# -----------------------------------------------------------------------------
 st.markdown(
     """
 <style>
@@ -1168,9 +1156,6 @@ def passenger_alerts_tab(df_local: pd.DataFrame) -> None:
     st.markdown('</div>', unsafe_allow_html=True)
 
 
-# -----------------------------------------------------------------------------
-# Authentication gate
-# -----------------------------------------------------------------------------
 if not st.session_state.logged_in:
     login_screen()
     st.stop()
@@ -1179,9 +1164,7 @@ if st.session_state.user_role == "passenger":
     passenger_page()
     st.stop()
 
-# -----------------------------------------------------------------------------
-# Sidebar
-# -----------------------------------------------------------------------------
+
 with st.sidebar:
     st.markdown("### ✈ AeroLogix AI")
     st.caption("Airport Operations Intelligence")
@@ -1244,9 +1227,7 @@ with st.sidebar:
         st.session_state.chat_history = []
         st.rerun()
 
-# -----------------------------------------------------------------------------
-# Main
-# -----------------------------------------------------------------------------
+
 top_nav()
 
 if not st.session_state.analysis_done:
@@ -1272,9 +1253,6 @@ summary = eda["summary"]
 recs = st.session_state.recommendations
 page = st.session_state.page
 
-# -----------------------------------------------------------------------------
-# Dashboard page
-# -----------------------------------------------------------------------------
 if page == "Dashboard":
     hero(
         "Airport Operations Intelligence",
@@ -1330,9 +1308,7 @@ if page == "Dashboard":
     st.dataframe(eda["delay_by_airline"], use_container_width=True, hide_index=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# -----------------------------------------------------------------------------
-# Analytics page
-# -----------------------------------------------------------------------------
+
 elif page == "Analytics":
     hero("Deep Analytics", "Gate congestion, top routes, cargo, baggage and delay correlations", "EDA ENGINE")
 
@@ -1352,9 +1328,6 @@ elif page == "Analytics":
         st.plotly_chart(chart_delay_by_airline(eda["delay_by_airline"]), use_container_width=True)
         st.plotly_chart(chart_delay_heatmap(eda["delay_by_hour"]), use_container_width=True)
 
-# -----------------------------------------------------------------------------
-# ML Predictor page
-# -----------------------------------------------------------------------------
 elif page == "ML Predictor":
     hero("ML Delay Predictor", "Train a Random Forest model and test flight delay risk", "SKLEARN")
 
@@ -1423,9 +1396,7 @@ elif page == "ML Predictor":
     else:
         st.info("Click Train Delay Model to enable prediction and feature importance.")
 
-# -----------------------------------------------------------------------------
-# Reports page
-# -----------------------------------------------------------------------------
+
 elif page == "Reports":
     hero("Reports & Memory", "Build PDF reports and review previous analysis sessions", "REPORTLAB")
 
@@ -1463,16 +1434,10 @@ elif page == "Reports":
     st.markdown('</div>', unsafe_allow_html=True)
 
 
-# -----------------------------------------------------------------------------
-# Passenger Alerts page
-# -----------------------------------------------------------------------------
 elif page == "Passenger Alerts":
     hero("Passenger Alerts", "Search a flight, preview the message, and send WhatsApp updates to passengers.", "TWILIO")
     passenger_alerts_tab(df)
 
-# -----------------------------------------------------------------------------
-# AI Assistant page
-# -----------------------------------------------------------------------------
 elif page == "AI Assistant":
     hero("AeroLogix AI Agent", "Ask natural-language questions with LangGraph workflow and SQLite memory", "LANGGRAPH")
 
