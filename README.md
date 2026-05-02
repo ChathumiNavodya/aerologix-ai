@@ -213,7 +213,3 @@ screenshots/
 ## Author
 
 Developed by Chathumi Navodya.
-=======
-# aerologix-ai
-AI-powered airport dashboard for analyzing flight delays, predicting risks, and sending real-time passenger alerts via WhatsApp.
->>>>>>> cad0e49b9c1107d2f536a2a89b7c3fdc0d409e97
