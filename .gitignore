@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.env
+*.db
+.DS_Store
+.streamlit/secrets.toml
+# Add these to .gitignore
+.env
+venv/
+__pycache__/
+*.pyc
+*.db
+reports/
+screenshots/
