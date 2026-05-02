@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AeroLogix AI — Airport Operations Intelligence Dashboard
 
 AeroLogix AI is an AI-powered airport operations dashboard that helps airport staff analyse flight delays, gate congestion, cargo and baggage activity, passenger impact, and operational recommendations.
@@ -212,3 +213,7 @@ screenshots/
 ## Author
 
 Developed by Chathumi Navodya.
+=======
+# aerologix-ai
+AI-powered airport dashboard for analyzing flight delays, predicting risks, and sending real-time passenger alerts via WhatsApp.
+>>>>>>> cad0e49b9c1107d2f536a2a89b7c3fdc0d409e97
